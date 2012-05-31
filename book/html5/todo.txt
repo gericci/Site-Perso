@@ -1,11 +1,27 @@
 Nouvelles Fonctionnalités : 
-- WebStorage
-- WebSockets
-- Webessaging
-- Geolocalisation
-- WebSQL
+- Polyfill
+- Nouvelles Fonctionnalités
+  - WebStorage
+  - WebSockets
+  - Webessaging
+  - Geolocalisation
+  - WebSQL
+  - WebForms
+    - Nouveaux Input
+	- type=email
+  - History API
+  - Offline API
+  - EventSource
+  - WebRT
+  - WebAudio
+  - WebGL
+  - FullScrean API
 
 Outils
 - HTML5Shiv
 - Modernizr
 - HTML5 Boilerplate
+
+- Liens Utiles
+  - Vidéos
+    - Présentation de Remy Sharp à la Conférence JSConf 2012 : http://blip.tv/jsconf/jsconf2012-remy-sharp-6142746
