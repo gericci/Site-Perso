@@ -1,6 +1,7 @@
 <?php
 $page=1;
-$title = "Emmanuel DEMEY - Spécialiste du WEB";
+$title = "Emmanuel DEMEY - Spécialiste du WEB dans la Région Lilloise - Mon Parcours";
+$description = "Grâce à ce document, vous trouverez tout mon parcours professionnel et universitaire, avec notamment tous les projets sur lesquels j'ai travaillé.";
 include "header.php";
 ?>
 			

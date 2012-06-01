@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+	        <meta name="description" content="<?php echo $description; ?>">	
 		<title><?php echo $title;?></title>
-		
 		<!-- CSS -->
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="css/social-icons.css" type="text/css" media="screen" />

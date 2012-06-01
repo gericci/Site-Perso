@@ -1,6 +1,7 @@
 <?php
 $page=2;
-$title = "Emmanuel DEMEY - Contactez moi !!";
+$title = "Emmanuel DEMEY - Spécialiste du WEB dans la Région Lilloise - Contactez Moi!";
+$description = "Pour toutes vos questions concernant mon parcours, mes compétences techniques, une technologie, je vous invite à me contacter. Je me ferai un joie de vous répondre.";
 include "header.php";
 ?>
 
