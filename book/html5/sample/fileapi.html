@@ -1,0 +1,24 @@
+<!doctype html>
+<head>
+</head>
+<body>
+	<form>
+		<input type="file" id="files" name="files[]" multiple />
+	</form>
+	<span id="span">
+	</span>
+	
+	<script>
+	  document.getElementById('files').addEventListener('change', function(evt){
+		var files = evt.target.files;
+		var html = [];
+		
+		html.push("<p>", "New Uploaded Files :", "</p>");
+		for (var i = 0, f; f = files[i]; i++) {
+			html.push('<li>', files[i].name,', size :',files[i].size,' bytes</li>');
+		}
+		document.getElementById('span').innerHTML=html.join('');
+	  }, false);
+	</script>
+</body>
+</html>

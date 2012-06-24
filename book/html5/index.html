@@ -9,17 +9,99 @@
 </head>
 <body>
 <p>
-	<h1>Le Monde du HTML5</h1>
+	<h1>Le Monde du HTML5 (version 0.0.1-SNAPSHOT)</h1>
 	<h3>Emmanuel DEMEY</h3>
 </p>
 <h2 id="sommaire">Sommaire</h2>
 <ul>
 <li><h4><a href="#introduction">Introduction</a></h4></li>
+<li><h4><a href="#polyfills">Les Polyfills</a></h4></li>
+<li><h4><a href="#fonctionnalites">Les Nouvelles Fonctionnalités</a></h4>
+<a href="webforms">WebForms</a> <a href="webstorage">WebStorage</a> <a href="offlineapi">Offline API</a> <a href="geolocalisation">Geolocalisation</a> <a href="websockets">WebSockets</a> <a href="webmessaging">WebMessaging</a> <a href="historyapi">History API</a> <a href="webaudio">WebAudio</a> <a href="fullscreanapi">FullScrean API</a> <a href="websql">WebSQL</a> <a href="fileapi">File API</a></li>
+<li><h4><a href="#outils">Quelques Outils</a></h4>
+<a href="html5shiv">HTML5Shiv</a> <a href="modernizr">Modernizr</a> <a href="html5boilerplate">HTML5 Boilerplate</a></li>
 <li><h4><a href="#liens">Quelques Liens</a></h4></li>
-<li><h4><a href="#outils">Quelques Outils</a></h4></li>
 </ul>
 <h2 id="introduction"><a name="introduction">Introduction</a></h2>
-<h2 id="quelques-liens"><a name="liens">Quelques Liens</a></h2>
+<h2 id="les-polyfills"><a name="polyfills">Les Polyfills</a></h2>
+<p>Vous vous doutez sûrement que le HTML5 n'est pas fonctionnel sur tous les navigateurs. En effet, il est beaucoup plus facile de développer une application avec ses nouvelles technologies pour les tous nouveaux navigateurs.</p>
+<p>Cependant, il existe des solutions. En effet, au fur et à mesure du deploiement du HTML5, la communauté du WEB développe des mécanismes permettant de bénéficier de toutes ses nouvelles fonctionnalités sur les anciens navigateurs. Nous les nommons des <strong>polyfills</strong>. Le plus souvent, ceux sont des fichiers javascript à ajouter à vos pages.</p>
+<p>Dans ce livre, je vous indiquerai également les polyfills les plus performants pour chaque fonctionnalités détaillées. A l'heure actuelle, il existe de nombreux polyfills différents, s'appliquant certaines fois à la même fonctionnalités. Si vous connaissez des polyfills plus performants, je vous invite à contribuer à ce document.</p>
+<h2 id="les-nouvelles-fonctionnalités"><a name="fonctionnalites">Les Nouvelles Fonctionnalités</a></h2>
+<h3 id="webforms"><a name="webforms">WebForms</a></h3>
+<h3 id="webstorage"><a name="webstorage">WebStorage</a></h3>
+<h3 id="offline-api"><a name="offlineapi">Offline API</a></h3>
+<h3 id="geolocalisation"><a name="geolocalisation">geolocalisation</a></h3>
+<h3 id="websockets"><a name="websockets">WebSockets</a></h3>
+<h3 id="webmessaging"><a name="webmessaging">WebMessaging</a></h3>
+<h3 id="history-api"><a name="historyapi">History API</a></h3>
+<h3 id="webaudio"><a name="webaudio">WebAudio</a></h3>
+<h3 id="fullscrean-api"><a name="fullscreanapi">FullScrean API</a></h3>
+<h3 id="websql"><a name="websql">WebSQL</a></h3>
+<h3 id="file-api"><a name="fileapi">File API</a></h3>
+<p>Grâce à l'API de gestion de fichiers, il est à présent possible de manipuler des fichiers. Pour cela, nous allons utiliser la nouvelle classe FileReader, disponible dans la nouvelle API JavaScript. Vous trouverez toutes les informations concernant cette API sur le <a href="http://www.w3.org/TR/FileAPI/">site du W3C</a></p>
+<p>Je vais à présent développer un exemple d'utilisation de cette nouvelle API. Le but de l'exemple est de pouvoir uploader différents fichiers, et après soumission du formulaire, en récupérer leur nom et leur taille.</p>
+<p>Nous allons tout d'abord ajouter à notre page un formulaire, afin de transférer des fichiers. Pour cela, nous allons utiliser l'élément input de type &quot;file&quot;.</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form&gt;
+        &lt;input type=&quot;file&quot; id=&quot;files&quot; name=&quot;files[]&quot; multiple /&gt;
+    &lt;/form&gt;
+    &lt;span id=&quot;span&quot;&gt;
+    &lt;/span&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>Lorsque ce champs sera modifié, c'est à dire lorsque l'utilisateur à ajouter un ou plusieurs fichiers, nous allons mettre à jour l'élément span, avec toutes les informations des fichiers ajoutés.</p>
+<p>Nous allons donc ajouter un EventListener à l'élément file, afin de détecter l'évènement change. Pour cela nous allons utiliser la méthode addEventListener.</p>
+<pre><code>&lt;script&gt;
+  document.getElementById(&#39;files&#39;).addEventListener(&#39;change&#39;, function(evt){
+
+  }, false);
+&lt;/script&gt;</code></pre>
+<p>La dernière étape est donc de récupérer les fichiers chargés, et de lire ces différentes propriétés.<br />L'objet files correspond à un objet de type <a href="http://www.w3.org/TR/FileAPI/#dfn-filelist">FileList</a>, contenant des objet de type <a href="http://www.w3.org/TR/FileAPI/#file">File</a>. Lorsque nous avons récupérer cette liste de fichiers, il suffit donc de la parcourir, et de lire les paramètres name et size de l'objet File.</p>
+<pre><code>&lt;script&gt;
+  document.getElementById(&#39;files&#39;).addEventListener(&#39;change&#39;, function(evt){
+    var files = evt.target.files;
+    var html = [];
+
+    html.push(&quot;&lt;p&gt;&quot;, &quot;New Uploaded Files :&quot;, &quot;&lt;/p&gt;&quot;);
+    for (var i = 0, f; f = files[i]; i++) {
+        html.push(&#39;&lt;li&gt;&#39;, files[i].name,&#39;, size :&#39;,files[i].size,&#39; bytes&lt;/li&gt;&#39;);
+    }
+    document.getElementById(&#39;span&#39;).innerHTML=html.join(&#39;&#39;);
+  }, false);
+&lt;/script&gt;</code></pre>
+<p>Voici le code complet :</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form&gt;
+        &lt;input type=&quot;file&quot; id=&quot;files&quot; name=&quot;files[]&quot; multiple /&gt;
+    &lt;/form&gt;
+    &lt;span id=&quot;span&quot;&gt;
+    &lt;/span&gt;
+
+    &lt;script&gt;
+      document.getElementById(&#39;files&#39;).addEventListener(&#39;change&#39;, function(evt){
+        var files = evt.target.files;
+        var html = [];
+
+        html.push(&quot;&lt;p&gt;&quot;, &quot;New Uploaded Files :&quot;, &quot;&lt;/p&gt;&quot;);
+        for (var i = 0, f; f = files[i]; i++) {
+            html.push(&#39;&lt;li&gt;&#39;, files[i].name,&#39;, size :&#39;,files[i].size,&#39; bytes&lt;/li&gt;&#39;);
+        }
+        document.getElementById(&#39;span&#39;).innerHTML=html.join(&#39;&#39;);
+      }, false);
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 <h2 id="quelques-outils"><a name="outils"> Quelques Outils</a></h2>
+<h3 id="html5shiv"><a name="html5shiv">HTML5Shiv</a></h3>
+<h3 id="modernizr"><a name="modernizr">Modernizr</a></h3>
+<h3 id="html5-boilerplate"><a name="html5boilerplate">HTML5 Boilerplate</a></h3>
+<h2 id="quelques-liens"><a name="liens">Quelques Liens</a></h2>
 </body>
 </html>
