@@ -1,0 +1,96 @@
+{
+	"experience" : [
+		{
+			"annee" : "2010",
+			"societe" : "Atos",
+			"ville" : "Seclin",
+			"poste" : "Ingénieur Etude & Développement",
+			"lien" : "http://fr.atos.net/fr-fr/", 
+			"projet" : [
+				{
+					"libelle" : "Membre de l'équipe WebPlatform, experte du framework open-source Tapestry : support, formation (Seclin, Lyo, Barcelone)",
+					"technologie" : "tapestry, jquery, ejb, jpa"
+				},
+				{
+					"libelle" : "Développement d'une platforme (Kawwa2), permettant la mise à dispositions de composants Web, pouvant être utiles aux autres ingénieur d'Atos",
+					"technologie" : "tapestry, jquery, html5, maven"
+				}, 
+				{
+					"libelle" : "Responsable du projet Tapestry5-jQuery",
+					"technologie" : "tapestry, jquery, Spock, gradle, maven",
+					"lienprojet" : "http://tapestry5-jquery.com/"
+				}
+				
+			]
+		},
+		{
+			"annee" : "2009 - 2010",
+			"societe" : "Ecole des Mines",
+			"ville" : "Douai",
+			"poste" : "Ingénieur Développement",
+			"lien" : "http://www.mines-douai.fr/", 
+			"projet" : [
+				{
+					"libelle" : "Développement d'une application de gestion des frais de déplacements",
+					"technologie" : "PHP, CSS, ExtJS, MySQL"
+				}
+			]
+		}, 
+		{
+			"annee" : "2009",
+			"societe" : "Hestia France",
+			"ville" : "Templeuve",
+			"poste" : "Stagiaire Analyste - Développeur",
+			"lien" : "http://www.hestia-france.com/", 
+			"projet" : [
+				{
+					"libelle" : "Intégration des protocoles SNMP et Syslog au sein des centrales de domotique Varuna",
+					"technologie" : "C, C++, Protocole SNMP, Syslog"
+				}, 
+				{
+					"libelle" : "Modification des applications permettant de configurer les centrales de domotique Varuna",
+					"technologie" : "Java, C++"
+				}
+			]
+		}, 
+		{
+			"annee" : "2007 - 2008",
+			"societe" : "Akebono",
+			"ville" : "Monchy-le-Preux",
+			"poste" : "Stagiaire Ingénieur Développeur",
+			"lien" : "http://www.akebonobrakes.com/", 
+			"projet" : [
+				{
+					"libelle" : "En charge du développement d'une application de supervision des lignes de production, afin de récupérer automatiquement les données importantes (production et rebuts) et les utiliser directement dans l'ERP.", 
+					"technologie" : "Visual Basic .NET, SQL Server 2005"
+				}
+			]
+		}, 
+		{
+			"annee" : "2007",
+			"societe" : "Oxfam",
+			"ville" : "Bromley - Angleterre",
+			"poste" : "Stagiaire Responsable de Magasin",
+			"lien" : "http://www.oxfam.org/fr", 
+			"projet" : [
+				{
+					"libelle" : "Stage linguistique. Gestion de Magasin et d'un équipe."
+				}
+			]
+		}, 
+		{
+			"annee" : "2006",
+			"societe" : "Satakunta University",
+			"ville" : "Rauma - Finlande",
+			"poste" : "Stagiaire Technicien Développeur",
+			"lien" : "http://www.samk.fi/english/", 
+			"projet" : [
+				{
+					"libelle" : "Responsable du développement d'une plateform d'E-learning.", 
+					"technologie" : "HTML, CSS, PHP, MySQL"
+				}
+			]
+		}
+		 
+	]
+}

@@ -1,0 +1,18 @@
+{{#experience}}
+  <h5>{{annee}} : <a href="{{lien}}" target="_blank">{{societe}}</a> ({{ville}}) - {{poste}}</h5>
+  {{#projet}}
+    <div class="projet">
+		<p class="libelle">
+			{{libelle}}
+		</p>
+		{{#lienprojet}}
+			<p class="technologie"><strong>Lien : <a href="{{lienprojet}}" target="_blank">{{lienprojet}}</a></strong></p>
+		{{/lienprojet}}
+		{{#technologie}}
+			<p class="technologie">  
+				<strong>Technologies : {{technologie}}</strong>
+			</p>
+		{{/technologie}}
+	</div>
+  {{/projet}}
+{{/experience}}
