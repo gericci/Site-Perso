@@ -1,0 +1,816 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>Les Applications Mobiles de Demain</title>
+
+		<meta name="description" content="Les Applications Mobiles de Demain">
+		<meta name="author" content="Emmanuel DEMEY">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body>
+		
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>Les Applications Mobiles de demain</h1>
+				</section>
+				
+				<section>
+					<h2>3 types d'applications</h2>
+					<p>
+						<img src="images/3_types_apps.png" width="500px">
+					</p>
+				</section>
+
+				
+
+				<section>
+					<p>
+						<img src="images/html5mobile.png" style="height: 100%; width: 100%;display:block;">
+					</p>
+				</section>
+				
+				<section>
+					<h2>2 versions spécifiques</h2>
+					<p><img src="images/ddw-new-website-mobile-friendly.jpg"></p>
+					<aside class="notes">
+						Au départ, les webdesigners créaient 2 versions de leur site web. une pour le desktop et une pour le mobile. Mais avec l'émergence des terminaux connecté, cela serai vite devenu ingérable. 
+					</aside>
+				</section>
+				<section>
+					
+					<p> 
+						<img src="images/tablets.jpg">
+					</p>
+				</section>
+
+				<section>
+					<p>
+						<img src="images/connectedtv.jpg">
+					</p>
+				</section>
+				<section class="stack">
+					<section>
+						<h2>Le Responsive Design<h2>
+						<p>
+							<img src="images/dalton.jpg">
+						</p>
+						<aside class="notes">
+							Le Responsive design indique un style de développement d'application web, où le contenu est le même sur chaque appareils, seul l'affichage diffère. Ce terme a été popularisé par un célèbre Web Designer Ethan Marcotte. 
+							On peut par exemple retrouver cette idées en architecture. 
+							On peut adapter la taille des textes, des images,d es vidéo, la largeur des contenus
+						</aside>
+					</section>	
+					<section>
+						<p>
+							<img src="images/boston_globe_responsive_website.jpg">
+						</p>
+					</section>
+					<section>
+						<h2>Conception d'un design Responsive</h2>
+						<ul>
+							<li>Construction d'une Grille Fluide</li>
+							<li>Recherche des points de rupture</li>
+							<li>Ecriture des styles qui corrigent les points des ruptures</li>
+							<li>Activation de ces styles en fonction de conditions.</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Les Grilles Fluides</h2>
+						<ul>
+							<li>Utiliser des tailles relatives</li>
+							<li>Utiliser les blocs flottants, permettant un agencement libre</li>
+							<li>ne pas oublier l'alignement vertical (polices)</li>
+						</ul>
+					</section>
+				
+					<section>
+						<h2>Design Old School</h2>
+						<pre>
+							<code class="html">
+&lt;html&gt;
+  &lt;body&gt;
+  	&lt;div id="wrapper"&gt;
+  		&lt;div&gt;Bloc 1&lt;div&gt;
+  		&lt;div&gt;Bloc 2&lt;div&gt;
+  	&lt;div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+							</code>
+						</pre>
+						<pre>
+							<code class="css">
+#wrapper{
+	width: 960px;
+}
+div {
+	width: 480px;
+	font-size: 24px
+	float: left;
+}
+							</code>
+						</pre>
+
+						<aside class="notes">
+							Inconvénients : multiplicité des CSS pour gérer les différents tailles d'écran
+
+						</aside>
+					</section>
+					<section>
+						<h2>Fluid Design</h2>
+						<pre>
+							<code class="html">
+&lt;html&gt;
+  &lt;body&gt;
+  	&lt;div id="wrapper"&gt;
+  		&lt;div&gt;Bloc 1&lt;div&gt;
+  		&lt;div&gt;Bloc 2&lt;div&gt;
+  	&lt;div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code>
+						</pre>
+						<pre>
+							<code class="css">
+#wrapper{
+	width: 95%;
+	font-size: 100%;
+	margin: 0 auto;
+}
+div {
+	width: 50%;
+	font-size: 1.5em; /*24px/16px*/
+	float: left;
+}</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Les ennuis commencent</h2>
+						<pre>
+							<code class="html">
+&lt;html&gt;
+  &lt;body&gt;
+  	&lt;div id="wrapper"&gt;
+  		&lt;div&gt;&lt;p&gt;Bloc 1&lt;/p&gt;&lt;div&gt;
+  		&lt;div&gt;Bloc 2&lt;div&gt;
+  	&lt;div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code>
+						</pre>
+						<pre>
+							<code class="css">
+#wrapper{
+	width: 95%;
+	font-size: 100%;
+	margin: 0 auto;
+}
+div {
+	width: 50%; 
+	font-size: 1.5em; /*24px/16px*/
+	float: left;
+}
+p {
+	font-size: 1.08em; /*26px/24px*/
+}</code>
+						</pre>
+					</section>
+						<section>
+						<h2>Grid Frameworks </h2>
+						<ul>
+							<li>lessframework</li>
+							<li>columnal.com</li>
+							<li>cssgrid.net</li>
+							<li>getskeleton.com</li>
+						</ul>
+					</section>
+					
+					<section>
+						<h2>Les Média Queries</h2>
+						<ul>
+							<li>Apparu avec HTML4/CSS2</li>
+							<li>Conditionner le chargement d'une CSS en fonction du client</li>
+						</ul>
+						<aside class="notes">
+							Techniques permettant d'appliquer une feuille de style à une application en fonction du périphérique. Cette aproche permet d'approfondir l'approche de séparation des couches Contenu et Présentation. 
+						</aside>
+					</section>
+					<section>
+						<h2>Media Types</h2>
+						<p>Spécifier le rendu d'un document en fonction d'un média</p>
+						<ul class="devices mt">
+							<li><img src="images/mt1.jpg"></li>
+							<li><img src="images/mt2.jpg"></li>
+							<li><img src="images/mt3.jpg"></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Un peu d'histoire (au temps du HTML4 et CSS2)</h2>
+						<pre>
+							<code class="html">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel="stylesheet" media="screen" href="screen.css"/&gt;
+	&lt;link rel="stylesheet" media="print" href="print.css"/&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code>
+						</pre>
+						<pre>
+							<code class="css">
+@media print{
+	.menu {
+		display: none;
+	} 
+	body{
+		color: black;
+	}
+}</code>
+						</pre>
+						<aside class="notes">
+							Le problème avec cette version c'est la possibilité d'avoir plusieurs types de médias avec des capacités d'affichage différent. De plus, ce fonctionnement dépend beaucoup de son interprétation par les navigateurs. En effet, rien n'oblige un navigateur de choisir la feuille de style qui lui semble la plus approprié pour le device. Par example, il existe un média pour les mobiles qui est ignoré par les plupart des navigateurs mobile. 
+						</aside>
+					</section>
+					<section>
+						<h2>Media Types en CSS2</h2>
+						<ul>
+							<li>all</li>
+							<li>braille</li>
+							<li>embossed</li>
+							<li>handheld</li>
+							<li>print</li>
+							<li>projection</li>
+							<li>screen</li>
+							<li>speech</li>
+							<li>tty</li>
+							<li>tv</li>
+						</ul>
+					</section>
+					<section>
+						<h2>10 Media Types</h2>
+						<p><img src="images/10fingers.jpg"></p>
+					</section>
+					<section>
+					<h2>Les Médias Queries</h2>
+					<pre>
+						<code class="html">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel="stylesheet" media="screen and (max-width: 640px)" 
+    		href="screen.css"/&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code>
+					</pre>
+					<pre>
+						<code class="css">
+@media screen and (max-width: 640px){
+	.menu {
+		display: none;
+	} 
+	body{
+		color: black;
+	}
+}</code>
+					</pre>
+						<aside class="notes">
+							Pour y remédier, nous allons utiliser les Média Queries, disponible dans les spécifications de CSS3. Les média queries offrent un panel de critères plus vaste et plus précis que les médias présent en CSS2.
+							L'une de confusions qu enos avons concernant le Responsive Design, c'est que nous pensons que le Responsive Design et les Mesia Queries c'est la même chose. En fait le Responsive Design est un ensemble de techniques CSS que nous allons voir en détails.
+
+							Une média query retourne vrai ou faux. Il suffit donc d'associer les différentes déclarations possibles avec un opérateur logique pour définir l'ensemble des conditions à réunir
+						</aside>
+					</section>
+				<section>
+					<h2>Propriétés</h2>
+					<ul>
+						<li>color</li>
+						<li>color-index</li>
+						<li>aspect-ratio</li>
+						<li>device-aspect-ratio</li>
+						<li>device-height</li>
+						<li>device-width</li>
+						<li>grid</li>
+						<li>height</li>
+						<li>monochrome</li>
+						<li>orientation</li>
+						<li>resolution</li>
+						<li>scan</li>
+						<li>width</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+						<li>color : support de la couleur</li>
+						<li>color-index : périphérique utilisant une table de couleurs indexées</li>
+						<li>aspect-ratio : ratio du périphérique de sortie</li>
+						<li>device-aspect-ratio : ratio de la zone d'affichage</li>
+						<li>device-height : dimension en hauteur du périphérique</li>
+						<li>device-width : dimension en largeur du périphérique</li>
+						<li>grid : périphérique bitmap ou grille</li>
+						<li>height : dimension en hauteur de la zone d'affichage</li>
+						<li>monochrome : périphérique monochrome ou niveaux de gris</li>
+						<li>orientation : orientation du périphérique (landscape ou paysage)</li>
+						<li>resolution : résolution du périphérique</li>
+						<li>scan : type de balayage des téléviseurs (progressive ou interlace)</li>
+						<li>width : dimension en largeur de la zone d'affichage/li>
+					</ul>
+					</aside>
+				</section>
+				<section>
+					<h2>Expression Multiple</h2>
+					<pre>
+					<code class="html">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel="stylesheet" href="screen.css"/&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code>
+					</pre>
+					<pre>
+						<code class="css">
+@media screen and (max-width: 640px)
+	and (min-width: 300px){
+	.menu {
+		display: none;
+	} 
+	body{
+		color: black;
+	}
+}</code>
+</pre>
+				</section>
+				<section>
+					<h2>1 CSS pour 2 différents médias</h2>
+					<pre>
+					<code class="html">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel="stylesheet" href="screen.css"/&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code>
+					</pre>
+					<pre>
+						<code class="css">
+@media handheld and (color),
+	screen and (color){
+	.menu {
+		display: none;
+	} 
+	body{
+		color: black;
+	}
+}</code>
+</pre>
+				</section>
+				<section>
+					<h2>Le mot clé NOT</h2>
+					<pre>
+					<code class="html">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel="stylesheet" href="screen.css"/&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</code>
+					</pre>
+					<pre>
+						<code class="css">
+@media not screen and (color){
+	.menu {
+		display: none;
+	} 
+	body{
+		color: black;
+	}
+}</code>
+</pre>
+				</section>
+				<section>
+						<h2>A la différence des 10 Media Types (CSS 2.1)</h2>
+						<p><img src="images/10fingers.jpg"></p>
+				</section>
+				<section class="fingers">
+						<h2>En CSS3...</h2>
+						<p><img src="images/Too-Many-IDeas.png" width="700px" height="450px"></p>
+
+				</section>
+				<section>
+					<h2>Compatibilité</h2>
+					<p>
+						<img src="images/browsers.jpg">
+					</p>
+					<p>
+						Pour les mauvais élèves, possibilité d'utiliser des polyfills : css3-mediaqueries.js, adapt.js, jquery.mediaqueries.js
+					</p>
+					<aside class="notes">
+						Selon le site Can I Use, tous les navigateurs gèrent les média queries, sauf IE7 et IE8. Je ne parle même pas de IE6 ;) J'ai retiré ce mot de mon vocabulaire il y a très longtems. Cela représente quand même 20% des visites sur des sites web en Europe. ce n'est pas négligeable. 
+						Le non support des média queries n'est pas un problème. Les medias queries seront tout simplement non gérér, et le site aura la CSS de défaut.
+					</aside>
+				</section>
+				<section>
+					<h2>Quelques lectures</h2>
+					<ul class="books">
+						<li><img src="images/rwd1.jpg" width="250px"></li>
+						<li><img src="images/rwd2.jpg" width="250px"></li>
+						<li><img src="images/rwd3.jpg" width="250px"></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Quelques lectures</h2>
+					<ul>
+						<li>http://unstoppablerobotninja.com/entry/fluid-images/</li>
+						<li>http://alisapart.com/articles/responsive-web-design</li>
+						<li>mediaqueri.es</li>
+						<li>smashingmagazine.com/2011/07/22/responsive-web-design-techniques-tools-and-design-strategies</li>
+						<li>http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/</li>
+						<li>http://palantir.net/blog/scalable-navigation-patterns-responsive-web-design</li>
+						<li>http://designhack.net/articles/css/sass-and-media-queries-what-you-can-and-cant-do</li>
+						<li>http://responsive.is</li>
+
+
+						
+					</ul>
+				</section>
+
+				</section>
+				
+				
+				<section>
+					<h1>Et les applications Hybrides ?</h1>
+
+					<aside class="notes">
+						Qu'est-ce qu'une application hybride ? Une application hybrude est développée avec les même technologies que les sites webs, mais exécutée par un composant natif du mobile. Elles utilisents les composants UIWebView d'iOS ou WebView d'Android par exemple. Comme la plupart des mobile utilise le moteur de rendu WebKit (iOS, Android, Blackberry ...), vous être quasi assuré d'avoir une fonctionnel identique sur toutes les platformes.
+					</aside>
+				</section>
+
+				<section>
+					<p>
+						<img src="images/cordova.png">
+					</p>
+					
+					<aside class="notes">
+						PhoneGap est un framework open-source de développement mobile dévolé par Nitobi Software (racheté par Adobe Systems).
+					</aside>
+				</section>
+
+				<section>
+					<ul>
+						<li class="fragment">Développement en HTML(5)/CSS/JS</li>
+						<li class="fragment">Possibilité d'utiliser des frameworks JavaScript</li>
+						<li class="fragment">Accès aux fonctionnalités du téléphone en JavaScript</li>
+						<li class="fragment">Support de 10 plateformes différentes</li>
+						<li class="fragment">Projet Open-Source (Licence Apache)</li>
+						<li class="fragment">Soutenu par la société Adobe</li>
+
+						<!-- TODO Image Project Android sous Eclipse -->
+					</ul>
+				</section>
+				<section>
+					<h2>Devices supportés</h2>
+					<p>
+						<ul class="devices">
+							<li><img src="images/iphone.png"></li>
+							<li><img src="images/android.png"></li>
+							<li><img src="images/blackberry.png"></li>
+							<li><img src="images/hp.png"></li>
+							<li><img src="images/wp7.jpg"></li>
+							<li><img src="images/symbian.jpg"></li>
+						</ul>
+						
+					</p>
+					<aside class="notes">
+						iphone, iphone 3Gs and newer, Android, Blackberry OS5 et +, WebOS, Windows Phone 7, Symbian, Bada
+					</aside>
+				</section>
+				<section>
+					<h2>Contributeurs</h2>
+					<ul>
+						<li>Nitobi</li>
+						<li>IBM</li>
+						<li>RIM</li>
+						<li>Microsoft</li>
+						<li>Sony Ericsson</li>
+						<li>Symbian</li>
+						<li>Palm</li>
+						<li>Sencha</li>
+						<li>Palm</li>
+					</ul>
+				</section>
+	
+				<section>
+					<h2>Apache Cordova API</h2>
+					<ul class="cordovaapi">
+						<li>Sensors</li>
+						<li>Data</li>
+						<li>Events</li>
+					</ul>
+					<aside class="notes">
+						Sensors : acceleromètre, boussole
+					</aside>
+				</section>
+				<section>
+					<h2>Sensors</h2>
+					<ul class="cordovaapi">
+						<li>GPS</li>
+						<li>Accelerometer</li>
+						<li>Compass</li>
+						<li>Network</li>
+						<li>Camera</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Data</h2>
+					<ul class="cordovaapi">
+						<li>Contacts</li>
+						<li>Media</li>
+						<li>File System</li>
+						<li>Notification</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Events</h2>
+					<ul class="cordovaapi">
+						<li>deviceready</li>
+						<li>online/offline</li>
+						<li>batterycritical/batterylow/batterystatus</li>
+						<li>startcallbutton/endcallbutton</li>
+						<li>volumedownbutton/volumeupbutton</li>
+						<li>pause/resume</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Quel framework JavaScript utiliser ?</h2>
+					<ul>
+						<li>jQuery Mobile</li>
+						<li>jQTouch</li>
+						<li>Sencha</li>
+						<li>XUI</li>
+						<li>Wink</li>
+						<li>QooXDoo</li>
+						<li>Zepto</li>
+						<li>JoApp</li>
+					</ul>
+				</section>
+			
+				<section>
+					<h2>Geolocalisation API</h2>
+					<h3>L'Objet Position</h3>	
+					<pre>
+						<code class="javascript">
+{
+	coords : {
+		latitude: "", 
+		longitude: "", 
+		altitude: "", 
+		accuracy: "", 
+		altitudeAccuracy: "", 
+		heading: "", 
+		speed: ""
+	}, 
+	Timestamp : ""
+}
+
+						</code>
+					</pre>
+					<aside class="notes">
+
+					</aside>
+				</section>
+				<section>
+					<h2>Geolocalisation API</h2>
+					<h3>geolocation.getCurrentPosition</h3>	
+					<pre>
+						<code class="javascript">
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady(){
+	navigator.geolocalisation
+		.getCurrentPosition(onSuccess, onError);
+}
+
+function onSuccess(position){
+	alert(position.coords.latitude);
+}
+function onError(error){
+	alert(error.message);
+}
+
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Geolocalisation API</h2>
+					<h3>geolocation.watchPosition</h3>	
+					<pre>
+						<code class="javascript">
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady(){
+	navigator.geolocalisation
+		.watchPosition(onSuccess, onError, 
+			{frequency: 1000});
+}
+
+function onSuccess(position){
+	//je bougerai mon petit bonhomme sur ma carte
+}
+function onError(error){
+	alert(error.message);
+}
+
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Notification API</h2>
+					<pre>
+						<code class="javascript">
+function onDeviceReady(){
+	navigator.notification
+		.alert("Message", onSuccess, "Titre" , "OK");
+
+	navigator.notification
+		.confirm("Message", onConfirmSuccess, 
+			"Titre" , "OK,Cancel");
+
+	navigator.notification.beep(3);
+
+	navigator.notification.vibrate(500);
+}
+
+function onConfirmSuccess(button){ }
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Contacts API</h2>
+					<pre>
+						<code class="javascript">
+function onDeviceReady(){
+	var contact = navigator.contacts.create();
+
+	contact.displayName="Emmanuel DEMEY";
+	contact.nickname="Emmanuel DEMEY";
+
+	var name = new ContactName();
+	name.givenName="Emmanuel";
+	name.familyName="Demey"
+	contact.name = name;
+
+	contact.emails = [new ContactField('home', 
+		'email@atos.net', false)];
+
+	contact.save();
+}				</code>
+					</pre>
+				</section>
+				<section>
+					<h2>Camera API</h2>
+					<pre>
+						<code class="javascript">
+function onDeviceReady(){	
+	navigator.camera.getPicture(onSuccess, onFail, {
+		quality: 50, 
+		destiantiontype: Camera.DestinationType.FILE_URI
+	});
+}
+function onSuccess(imageURI) {
+	$("img").attr("src", imageURI);
+}
+
+				</code>
+					</pre>
+
+					<aside class="notes">
+						parler de la création de PLUGIN
+					</aside>
+				</section>
+
+				<section>
+					<h1>PhoneGap Builder</h1>
+					<p>
+						<a href="http://build.phonegap.com">Essayez le!</a>
+					</p>
+				</section>
+				<section>
+					<img src="images/phonegapbuilder.png">
+				</section>
+				<section>
+					<img src="images/phonegapbuilder2.png">
+					<aside class="notes">
+						enable debugging ? 
+						enable hydration ?
+					</aside>
+				</section>
+				<section>
+					<img src="images/phonegapbuilder3.png">
+				</section>
+				<section>
+					<h1>Application publiée sur les Stores ?</h1>
+				</section>
+				<section>
+					<h3>Des milliers d'applications développées</h3>
+					<p><img src="images/iPad-Apps.jpg"></p>
+					
+				</section>
+				<section>
+					<h2>Quelques lectures</h2>
+					<ul class="books">
+						<li><img src="images/phonegap1.jpg" width="250px"></li>
+						<li><img src="images/phonegap3.jpg" width="250px"></li>
+						<li><img src="images/phonegap4.jpg" width="250px"></li>
+					</ul>
+				</section>
+				<section>
+					<h2>Points non abordés</h2>
+					<ul>
+						<li>jQuery Mobile</li>
+						<li>jQTouch</li>
+						<li>Sencha</li>
+						<li>XUI</li>
+						<li>Wink</li>
+						<li>QooXDoo</li>
+						<li>Zepto</li>
+						<li>JoApp</li>
+						<li>Brighcove</li>
+						<li>Marmalade</li>
+						<li>Titanium</li>
+						<li>Corona</li>
+						<li>Zepto.js, MoSync, Metismo, appcelerator, applause</li>
+					</ul>
+
+				</section>
+				<section>
+					<h1>Questions ? </h1>
+				</section>
+				<section>
+					<h1>Merci.</h1>
+					<h3>Emmanuel DEMEY - emmanuel.demey@atos.net</h3>
+				</section>
+
+			</div>
+			
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/zoom-js/zoom.js', condition: function() { return !!document.body.classList; } },
+					{ src: '/socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+				]
+			});
+			
+		</script>
+
+	</body>
+</html>
